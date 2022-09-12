@@ -1,11 +1,10 @@
 package concurrency.stage2;
 
-import org.junit.jupiter.api.Test;
+import static org.assertj.core.api.Assertions.assertThat;
 
 import java.net.http.HttpResponse;
 import java.util.concurrent.atomic.AtomicInteger;
-
-import static org.assertj.core.api.Assertions.assertThat;
+import org.junit.jupiter.api.Test;
 
 class AppTest {
 
@@ -39,7 +38,7 @@ class AppTest {
             thread.join();
         }
 
-        assertThat(count.intValue()).isEqualTo(2);
+        assertThat(count.intValue()).isEqualTo(10);
     }
 
     private static void incrementIfOk(final HttpResponse<String> response) {
